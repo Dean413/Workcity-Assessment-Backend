@@ -4,7 +4,7 @@ const app = require("./app")
 
 require("dotenv").config
 
-const dataBase = require("./database/database")
+const dataBase = require("./database/database") //database
 
 PORT = process.env.PORT || 5000
 
