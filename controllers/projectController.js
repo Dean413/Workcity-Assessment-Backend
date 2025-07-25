@@ -18,14 +18,14 @@ exports.createProject = async (req, res) => {
     const project = new Project({
       ...req.body,
       client: clientId,
-      user: req.userInfo?.id || req.user?.id  
+      user: req.body.user || req.userInfo?.id || req.user?.id
     });
 
     await project.save();
     res.json(project);
   } catch (err) {
     console.error(err);
-    res.status(500).json({ message: 'Server error' });
+    res.status(500).json({ message: "both fields are required" });
   }
 };
 
