@@ -34,7 +34,7 @@ exports.loginUser = async (req, res) => {
   try {
     const user = await User.findOne({ email });
     if (!user || !(await user.comparePassword(password))) {
-      return res.status(400).json({ message: 'Invalid credentials' });
+      return res.status(400).json({ message: 'invalid credentials' });
     }
     const token = generateToken(user);
     res.json({ 
